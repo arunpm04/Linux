@@ -9,12 +9,12 @@ CC=gcc
 CFLAGS=-Werror=unused-variable -I. -DAPP_DEBUG_EN=3
 LDFLAGS=
 
-.PHONY: all signals
+.PHONY: all signals messaging semaphoretest
 
 #==============================================================================
 # Build all Applications
 #==============================================================================
-all: signals messaging
+all: signals messaging semaphoretest
 
 clean: clean_signals clean_messaging
 
@@ -30,5 +30,10 @@ messaging:
 	$(CC) $(CFLAGS) $(LDFLAGS) -o msg_receiver $(CWD)/msg_receive.c $(CWD)/app_mq.c
 clean_messaging:
 	$(RM) msg_sender msg_receiver $(CWD)/app_mq.o $(CWD)/msg_send.o $(CWD)/msg_receive.o
+
+semaphoretest:
+	$(CC) $(CFLAGS) $(LDFLAGS) -o semaphoretest $(CWD)/semaphore_example.c -lpthread
+clean_signals:
+	$(RM) semaphoretest
 
 # Makefile_End
