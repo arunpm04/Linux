@@ -29,7 +29,7 @@
 #include <sys/stat.h>
 
 /* Preprocessor macros */
-#define SERVER_ADDRESS		"localhost"
+#define SERVER_ADDRESS		"127.0.0.1"
 #define TCP_SOCEKT_PORT		8000
 #define SOCKET_BUF_SIZE		1024
 

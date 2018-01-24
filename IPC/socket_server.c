@@ -102,7 +102,7 @@ int main(void)
 					/* All seems fine. Ready for data transfer. */
 					break;
 			}
-		} while ((server_socket_info.socket_state != TCPSOK_ACCEPT_DONE) || (server_exit_triggered == 0));
+		} while ((server_socket_info.socket_state != TCPSOK_ACCEPT_DONE) || (server_exit_triggered != 0));
 
 		/* Get data from client */
 		while (server_exit_triggered == 0) {
