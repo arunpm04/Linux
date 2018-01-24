@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include <signal.h>
 
-/* Sungal handlers */
+/* Singal handlers */
 void custom_sighup(int sig)
 {
 	signal(SIGHUP, custom_sighup); /* reset signal */
