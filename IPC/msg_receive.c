@@ -16,7 +16,7 @@ int main(void)
 		while (1) {
 			mq_recv(mqID, (uint8_t *)&buff, &size);
 			DBG("Received: %s\n", buff);
-			if (strcmp(buff, "Message 9") == 0) {
+			if (strcmp(buff, "Message 1000") == 0) {
 				DBG("Received last message\n");
 				exit(0);
 			}

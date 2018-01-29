@@ -7,7 +7,7 @@ MACHINE_TYPE=$(shell uname -m)
 
 CC=gcc
 CFLAGS=-Werror=unused-variable -I. -DAPP_DEBUG_EN=3
-LDFLAGS=
+LDFLAGS= -lm
 
 .PHONY: all signals messaging semaphoretest sockettest
 
@@ -25,9 +25,8 @@ clean_signals:
 	$(RM) signals
 
 messaging:
-	$(CC) $(CFLAGS) -c $(CWD)/msg_send.c $(CWD)/msg_receive.c $(CWD)/app_mq.c
-	$(CC) $(CFLAGS) $(LDFLAGS) -o msg_sender $(CWD)/msg_send.c $(CWD)/app_mq.c
-	$(CC) $(CFLAGS) $(LDFLAGS) -o msg_receiver $(CWD)/msg_receive.c $(CWD)/app_mq.c
+	$(CC) $(CFLAGS) -o msg_sender $(CWD)/msg_send.c $(CWD)/app_mq.c $(LDFLAGS)
+	$(CC) $(CFLAGS) -o msg_receiver $(CWD)/msg_receive.c $(CWD)/app_mq.c $(LDFLAGS)
 clean_messaging:
 	$(RM) msg_sender msg_receiver $(CWD)/app_mq.o $(CWD)/msg_send.o $(CWD)/msg_receive.o
 

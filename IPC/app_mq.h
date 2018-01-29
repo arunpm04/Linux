@@ -22,5 +22,6 @@ int mq_init(int msgKey);
 int mq_kill(int qid);
 int mq_send(int mqId, uint8_t *buf, uint16_t size);
 int mq_recv(int mqId, uint8_t *buf, uint16_t *size);
+int mq_check_free_precent(int mq_id);
 
 #endif /* __MSG_DEF_H__ */

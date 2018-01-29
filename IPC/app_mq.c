@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <string.h>
+#include <math.h>
 #include "app_mq.h"
 #include "app_debug.h"
 
@@ -71,3 +72,19 @@ int mq_recv(int mqId, uint8_t *buf, uint16_t *size)
 	return ret;
 }
 
+/* @func		: mq_check_free_precent
+ * @param1[in]	: Target queue ID
+ * @return		: Free space in percent(floored to nearest int) if Success; else -1.
+ */
+int mq_check_free_precent(int mq_id)
+{
+	int free_space = -1;
+	struct msqid_ds stat;
+	if (msgctl(mq_id, IPC_STAT, &stat) == -1) {
+		ERR("IPC_STAT check failed\n");
+		return -1;
+	}
+	free_space = floor(((stat.msg_qbytes - stat.__msg_cbytes)/(stat.msg_qbytes * 1.0))*100);
+	printf("IPC_STAT: %ld, %ld/%ld\n", free_space, stat.__msg_cbytes, stat.msg_qbytes);
+	return free_space;
+}
