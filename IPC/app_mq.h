@@ -1,5 +1,5 @@
-#ifndef __MSG_DEF_H__
-#define __MSG_DEF_H__
+#ifndef __APP_MQ_H__
+#define __APP_MQ_H__
 
 #include <sys/types.h>
 #include <sys/ipc.h>
@@ -24,4 +24,4 @@ int mq_send(int mqId, uint8_t *buf, uint16_t size);
 int mq_recv(int mqId, uint8_t *buf, uint16_t *size);
 int mq_check_free_precent(int mq_id);
 
-#endif /* __MSG_DEF_H__ */
+#endif /* __APP_MQ_H__ */

@@ -8,7 +8,8 @@ A collection of sample C programs to illustrate Inter process communication mech
    - Generate the binaries using makefile. Run `msg_sender` and `msg_receiver` to see the communication. 
 3. [x] Semaphores  
    - Generate example binary with `make semaphoretest` and run `semaphoretest` to see how it works.  
-4. [ ] Shared Memory  
+4. [x] Shared Memory  
+   - Generate example binary with `make sharedmemtest` and use `shmreader and shmwriter` to see how it works.  
 5. [x] Sockets  
 
 ###### Valgrind : for memory error/leakage detection

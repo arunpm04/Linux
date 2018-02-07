@@ -21,6 +21,8 @@
 #ifndef __APP_DEBUG_H__
 #define __APP_DEBUG_H__
 
+#include <stdio.h>
+
 #if APP_DEBUG_EN == 1
 #define DBG(fmt, args...)   fprintf(stdout, "[APP_DBG] " fmt, ##args)
 #define ERR(fmt, args...)   fprintf(stdout, "[APP_ERR] " fmt, ##args)
