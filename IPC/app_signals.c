@@ -17,6 +17,7 @@ void app_sig_handler(int signo, siginfo_t *info, void *ctx)
 			DBG("Siqueue data from info->si_value.sival_int is %d\n", info->si_value.sival_int);
 			break;
 		default:
+			return;
 			exit(0);
 	}
 }
