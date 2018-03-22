@@ -21,8 +21,12 @@ clean: clean_signals clean_messaging clean_semaphoretest clean_sockettest clean_
 #==============================================================================
 signals:
 	$(CC) $(CFLAGS) $(LDFLAGS) -o signals $(CWD)/signals.c
+	$(CC) $(CFLAGS) -I$(CWD) -c $(CWD)/signal_sender.c $(CWD)/signal_receiver.c $(CWD)/app_signals.c
+	$(CC) $(LDFLAGS) $(CWD)/app_signals.o $(CWD)/signal_sender.o -o sig_send
+	$(CC) $(LDFLAGS) $(CWD)/app_signals.o $(CWD)/signal_receiver.o -o sig_get
 clean_signals:
 	$(RM) signals
+	$(RM) sig_send sig_get
 
 messaging:
 	$(CC) $(CFLAGS) -o msg_sender $(CWD)/msg_send.c $(CWD)/app_mq.c $(LDFLAGS)
